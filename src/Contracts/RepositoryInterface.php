@@ -64,7 +64,7 @@ interface RepositoryInterface
      * @param int   $id
      * @return int
      */
-    public function update(array $values, $id, $attribute = "id");
+    public function update(array $values, $id);
 
     /**
      * Delete a record by id.

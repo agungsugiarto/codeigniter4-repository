@@ -21,7 +21,7 @@ class FindWhere implements CriterionInterface
 
                 list($field, $condition, $val) = $value;
 
-                $entity = $entity->where($field, $condition, $val);
+                $entity = $entity->orWhere($field . $condition, $val);
 
             } else {
 

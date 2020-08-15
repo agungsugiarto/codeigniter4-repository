@@ -70,8 +70,8 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Paginate the given query.
      *
-     * @param  int  $perPage
-     * @param  array  $columns
+     * @param int   $perPage
+     * @param array $columns
      * @return \CodeIgniter\Model
      *
      * @throws \InvalidArgumentException
@@ -89,12 +89,11 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      * Save a new model and return the instance.
      *
      * @param array $attributes
-     *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \CodeIgniter\Model
      */
     public function create(array $attributes)
     {
-        $results = $this->entity->create($attributes);
+        $results = $this->entity->insert($attributes);
 
         $this->reset();
 
@@ -104,16 +103,13 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Update a record.
      *
-     * @param  array  $values
-     * @param  int  $id
-     * 
+     * @param array $values
+     * @param int   $id
      * @return int
      */
-    public function update(array $values, $id, $attribute = "id")
+    public function update(array $values, $id)
     {
-        $model = $this->entity->where($attribute, $id)->firstOrFail();
-
-        $results = $model->update($values);
+        $results = $this->entity->update($id, $values);
 
         $this->reset();
 
