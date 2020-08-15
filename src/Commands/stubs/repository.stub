@@ -1,0 +1,29 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\NamespacedDummyModel;
+use Fluent\Repository\Eloquent\BaseRepository;
+use NamespacedDummyScope;
+
+class DummyClass extends BaseRepository
+{
+    /**
+     * The attributes that can be searched by.
+     *
+     * @var array
+     */
+    protected $searchable = [];
+
+    public function entity()
+    {
+        return DummyModel::class;
+    }
+
+    public function scope($request)
+    {
+        parent::scope($request);
+        $this->entity = (new DummyScope($request))->scope($this->entity);
+        return $this;
+    }
+}
