@@ -102,7 +102,7 @@ Extend it from `Fluent\Repository\Eloquent\BaseRepository` and provide `entity()
 ```php
 namespace App;
 
-use AwesIO\Repository\Eloquent\BaseRepository;
+use Fluent\Repository\Eloquent\BaseRepository;
 
 class NewsRepository extends BaseRepository
 {
@@ -197,8 +197,8 @@ Criteria are a way to build up specific query conditions.
 ```php
 use Fluent\Repository\Contracts\CriterionInterface;
 
-class MyCriteria implements CriterionInterface {
-
+class MyCriteria implements CriterionInterface
+{
     protected $conditions;
     
     public function __construct(array $conditions)
