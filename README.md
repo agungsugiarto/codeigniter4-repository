@@ -344,4 +344,6 @@ class MyScope extends ScopeAbstract
 }
 ```
 
-## Released under the MIT License, see [LICENSE](LICENSE).
+## License
+
+Released under the MIT License, see [LICENSE](https://github.com/agungsugiarto/codeigniter4-repository/blob/master/LICENSE.md).
