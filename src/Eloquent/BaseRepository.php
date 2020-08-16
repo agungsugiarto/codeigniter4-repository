@@ -24,7 +24,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Execute the query and get the first result.
      *
-     * @param  array  $columns
+     * @param array $columns
      * @return \CodeIgniter\Model
      */
     public function first($columns = ['*'])
@@ -39,8 +39,8 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Find a model by its primary key.
      *
-     * @param  mixed  $id
-     * @param  array  $columns
+     * @param mixed $id
+     * @param array $columns
      * @return \CodeIgniter\Model
      */
     public function find($id, $columns = ['*'])

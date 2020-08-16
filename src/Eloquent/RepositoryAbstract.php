@@ -29,6 +29,7 @@ abstract class RepositoryAbstract implements CriteriaInterface, ScopesInterface
         foreach ($criteria as $criterion) {
             $this->entity = $criterion->apply($this->entity);
         }
+        
         return $this;
     }
 

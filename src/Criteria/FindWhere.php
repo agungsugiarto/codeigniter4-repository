@@ -28,6 +28,7 @@ class FindWhere implements CriterionInterface
                 $entity = $entity->where($field, $value);
             }
         }
+        
         return $entity;
     }
 }

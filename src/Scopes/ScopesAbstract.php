@@ -20,6 +20,7 @@ class ScopesAbstract
         foreach ($scopes as $scope => $value) {
             $builder = $this->resolveScope($scope)->scope($builder, $value, $scope);
         }
+
         return $builder;
     }
 
@@ -38,8 +39,7 @@ class ScopesAbstract
     protected function filterScopes($scopes)
     {
         return array_filter($scopes, function ($scope) {
-                return isset($scope);
-            }
-        );
+            return isset($scope);
+        });
     }
 }

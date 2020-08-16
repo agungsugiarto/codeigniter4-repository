@@ -8,6 +8,6 @@ class WhereDateLessScope extends ScopeAbstract
 {
     public function scope($builder, $value, $scope)
     {
-        return $builder->orWhere('created_at', '<', $value);
+        return $builder->orWhere('created_at' . '<', $value);
     }
 }
