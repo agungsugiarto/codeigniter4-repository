@@ -29,7 +29,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      */
     public function first($columns = ['*'])
     {
-        $results = $this->entity->select($columns)->first($columns);
+        $results = $this->entity->select($columns)->first();
 
         $this->reset();
 
@@ -45,7 +45,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      */
     public function find($id, $columns = ['*'])
     {
-        $results = $this->entity->find($id, $columns);
+        $results = $this->entity->select($columns)->find($id);
 
         $this->reset();
 
