@@ -1,5 +1,12 @@
 # CodeIgniter4 Repository Pattern
->Implementation of repository pattern for CodeIgniter 4. The package allows out-of-the-box filtering of data based on parameters in the <b>request</b>, and also allows you to quickly integrate the list filters and custom criteria.
+
+[![Latest Stable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Total Downloads](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/downloads)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Latest Unstable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v/unstable)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![License](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/license)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+
+## About
+Implementation of repository pattern for CodeIgniter 4. The package allows out-of-the-box filtering of data based on parameters in the request, and also allows you to quickly integrate the list filters and custom criteria.
 
 ## Table of Contents
 
@@ -100,7 +107,7 @@ Extend it from `Fluent\Repository\Eloquent\BaseRepository` and provide `entity()
 ```php
 namespace App;
 
-use AwesIO\Repository\Eloquent\BaseRepository;
+use Fluent\Repository\Eloquent\BaseRepository;
 
 class NewsRepository extends BaseRepository
 {
@@ -173,13 +180,13 @@ $news = $this->news->orderBy('title', 'desc')->get();
 Save a new model and return the instance:
 
 ```php
-$news = $this->news->create($request->all());
+$news = $this->news->create($this->request->getVar());
 ```
 
 Update a record:
 
 ```php
-$this->news->update($request->all(), $id);
+$this->news->update($this->request->getVar(), $id);
 ```
 
 Delete a record by id:
@@ -195,8 +202,8 @@ Criteria are a way to build up specific query conditions.
 ```php
 use Fluent\Repository\Contracts\CriterionInterface;
 
-class MyCriteria implements CriterionInterface {
-
+class MyCriteria implements CriterionInterface
+{
     protected $conditions;
     
     public function __construct(array $conditions)
