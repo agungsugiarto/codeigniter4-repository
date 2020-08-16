@@ -175,13 +175,13 @@ $news = $this->news->orderBy('title', 'desc')->get();
 Save a new model and return the instance:
 
 ```php
-$news = $this->news->create($request->all());
+$news = $this->news->create($this->request->getVar());
 ```
 
 Update a record:
 
 ```php
-$this->news->update($request->all(), $id);
+$this->news->update($this->request->getVar(), $id);
 ```
 
 Delete a record by id:
