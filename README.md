@@ -1,5 +1,10 @@
 # CodeIgniter4 Repository Pattern
 
+[![Latest Stable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Total Downloads](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/downloads)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Latest Unstable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v/unstable)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![License](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/license)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+
 ## About
 Implementation of repository pattern for CodeIgniter 4. The package allows out-of-the-box filtering of data based on parameters in the request, and also allows you to quickly integrate the list filters and custom criteria.
 
