@@ -13,6 +13,6 @@ abstract class ScopeAbstract
 
     protected function resolveScopeValue($key)
     {
-        return array_keys($this->mappings(), $key);
+        return array_get($this->mappings(), $key);
     }
 }

@@ -107,6 +107,7 @@ Extend it from `Fluent\Repository\Eloquent\BaseRepository` and provide `entity()
 ```php
 namespace App;
 
+use App\Models\News;
 use Fluent\Repository\Eloquent\BaseRepository;
 
 class NewsRepository extends BaseRepository
@@ -156,7 +157,7 @@ $news = $this->news->find(1);
 Add basic where clauses and execute the query:
 
 ```php
-$news = $this->news->->findWhere([
+$news = $this->news->findWhere([
         // where id equals 1
         'id' => '1',
         // other "where" operations
@@ -293,7 +294,7 @@ protected $scopes = [
 ```
 
 ```php
-$this->news->scope($request)->get();
+$this->news->scope(service('request'))->get();
 ```
 
 Enable ordering for specific fields by adding `$orderable` property to your model class:
