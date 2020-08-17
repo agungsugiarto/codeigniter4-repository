@@ -10,7 +10,8 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Execute the query as a "select" statement.
      *
-     * @return \CodeIgniter\Model
+     * @param array $columns
+     * @return array
      */
     public function get(array $columns = ['*'])
     {
@@ -25,7 +26,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      * Execute the query and get the first result.
      *
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array|object
      */
     public function first($columns = ['*'])
     {
@@ -41,7 +42,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      *
      * @param mixed $id
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array|object
      */
     public function find($id, $columns = ['*'])
     {
@@ -57,8 +58,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      *
      * @param array $conditions
      * @param array $columns
-     *
-     * @return \CodeIgniter\Model
+     * @return array
      */
     public function findWhere(array $conditions, array $columns = ['*'])
     {
@@ -72,24 +72,24 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      *
      * @param int   $perPage
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array
      *
      * @throws \InvalidArgumentException
      */
     public function paginate($perPage = null, $columns = ['*'])
     {
-        $results = $this->entity->select($columns)->paginate($perPage);
-
-        $this->reset();
-
-        return $results;
+        return [
+            'data'     => $this->entity->select($columns)->paginate($perPage),
+            'paginate' => $this->entity->pager,
+        ];
     }
 
-     /**
+    /**
      * Save a new model and return the instance.
      *
      * @param array $attributes
-     * @return \CodeIgniter\Model
+     * @return \CodeIgniter\Database\BaseResult|false|int|string
+     * @throws \ReflectionException
      */
     public function create(array $attributes)
     {
@@ -106,6 +106,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      * @param array $values
      * @param int   $id
      * @return int
+     * @throws \ReflectionException
      */
     public function update(array $values, $id)
     {
@@ -119,8 +120,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Delete a record by id.
      * 
-     * @param  int  $id
-     * 
+     * @param int $id
      * @return mixed
      */
     public function destroy($id)
@@ -135,8 +135,8 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Add an "order by" clause to the query.
      *
-     * @param  string  $column
-     * @param  string  $direction
+     * @param string $column
+     * @param string $direction
      * @return $this
      */
     public function orderBy($column, $direction = 'asc')

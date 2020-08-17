@@ -12,7 +12,13 @@ class FindWhere implements CriterionInterface
     {
         $this->conditions = $conditions;
     }
-    
+
+    /**
+     * Apply model entity.
+     *
+     * @param \CodeIgniter\Model $entity
+     * @return mixed
+     */
     public function apply($entity)
     {
         foreach ($this->conditions as $field => $value) {

@@ -8,6 +8,11 @@ class ScopesAbstract
 
     protected $scopes = [];
 
+    /**
+     * ScopesAbstract constructor.
+     *
+     * @param \CodeIgniter\HTTP\IncomingRequest $request
+     */
     public function __construct($request)
     {
         $this->request = $request;

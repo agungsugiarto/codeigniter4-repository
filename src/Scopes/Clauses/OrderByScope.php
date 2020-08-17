@@ -6,6 +6,15 @@ use Fluent\Repository\Scopes\ScopeAbstract;
 
 class OrderByScope extends ScopeAbstract
 {
+
+    /**
+     * Order by scope.
+     *
+     * @param \CodeIgniter\Model $builder
+     * @param                    $value
+     * @param                    $scope
+     * @return mixed
+     */
     public function scope($builder, $value, $scope)
     {
         $arr = explode('_', $value);
@@ -21,6 +30,7 @@ class OrderByScope extends ScopeAbstract
 
             return $builder->orderBy($value, 'asc');
         }
+
         return $builder;
     }
 }
