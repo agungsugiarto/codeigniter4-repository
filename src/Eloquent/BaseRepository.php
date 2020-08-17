@@ -89,6 +89,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      *
      * @param array $attributes
      * @return \CodeIgniter\Database\BaseResult|false|int|string
+     * 
      * @throws \ReflectionException
      */
     public function create(array $attributes)
@@ -106,6 +107,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      * @param array $values
      * @param int   $id
      * @return int
+     * 
      * @throws \ReflectionException
      */
     public function update(array $values, $id)

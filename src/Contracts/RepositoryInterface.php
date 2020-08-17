@@ -7,7 +7,8 @@ interface RepositoryInterface
     /**
      * Execute the query as a "select" statement.
      *
-     * @return \CodeIgniter\Model
+     * @param array $columns
+     * @return array
      */
     public function get(array $columns = ['*']);
 
@@ -15,7 +16,7 @@ interface RepositoryInterface
      * Execute the query and get the first result.
      *
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array
      */
     public function first($columns = ['*']);
 
@@ -24,7 +25,7 @@ interface RepositoryInterface
      *
      * @param mixed $id
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array|object
      */
     public function find($id, $columns = ['*']);
 
@@ -33,8 +34,7 @@ interface RepositoryInterface
      *
      * @param array $conditions
      * @param array $columns
-     *
-     * @return \CodeIgniter\Model
+     * @return array
      */
     public function findWhere(array $conditions, array $columns = ['*']);
 
@@ -43,7 +43,7 @@ interface RepositoryInterface
      *
      * @param int   $perPage
      * @param array $columns
-     * @return \CodeIgniter\Model
+     * @return array
      *
      * @throws \InvalidArgumentException
      */
@@ -53,7 +53,9 @@ interface RepositoryInterface
      * Save a new model and return the instance.
      *
      * @param array $attributes
-     * @return \CodeIgniter\Model
+     * @return \CodeIgniter\Database\BaseResult|false|int|string
+     * 
+     * @throws \ReflectionException
      */
     public function create(array $attributes);
 
@@ -63,6 +65,8 @@ interface RepositoryInterface
      * @param array $values
      * @param int   $id
      * @return int
+     * 
+     * @throws \ReflectionException
      */
     public function update(array $values, $id);
 
