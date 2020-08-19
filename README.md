@@ -184,6 +184,8 @@ $news = $this->news->paginate(15);
             "updated_at": "2020-08-05 17:07:16",
             "deleted_at": null
         },
+        ...
+     ],
     "paginate": {}
 }
 ```
