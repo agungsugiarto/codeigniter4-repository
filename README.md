@@ -135,26 +135,27 @@ class NewsController extends BaseController
     ....
 }
 ```
+### Available methods
 
-Execute the query as a "select" statement or get all results:
+- Execute the query as a "select" statement or get all results:
 
 ```php
 $news = $this->news->get();
 ```
 
-Execute the query and get the first result:
+- Execute the query and get the first result:
 
 ```php
 $news = $this->news->first();
 ```
 
-Find a model by its primary key:
+- Find a model by its primary key:
 
 ```php
 $news = $this->news->find(1);
 ```
 
-Add basic where clauses and execute the query:
+- Add basic where clauses and execute the query:
 
 ```php
 $news = $this->news->findWhere([
@@ -166,31 +167,67 @@ $news = $this->news->findWhere([
     ]);
 ```
 
-Paginate the given query:
+- Paginate the given query:
 
 ```php
 $news = $this->news->paginate(15);
 ```
 
-Add an "order by" clause to the query:
+- Add an "order by" clause to the query:
 
 ```php
 $news = $this->news->orderBy('title', 'desc')->get();
 ```
 
-Save a new model and return the instance:
+- Save a new model and return the instance:
 
 ```php
 $news = $this->news->create($this->request->getVar());
 ```
 
-Update a record:
+- Save a batch new model and return instance:
+```php
+$data = [
+    [
+        'title' => 'My title',
+        'name'  => 'My Name',
+        'date'  => 'My date'
+    ],
+    [
+        'title' => 'Another title',
+        'name'  => 'Another Name',
+        'date'  => 'Another date'
+    ]
+];
+
+$news = $this->news->createBatch($data);
+```
+
+- Update a record:
 
 ```php
 $this->news->update($this->request->getVar(), $id);
 ```
 
-Delete a record by id:
+- Update a batch record:
+```php
+$data = [
+    [
+        'title' => 'My title',
+        'name'  => 'My Name',
+        'date'  => 'My date'
+    ],
+    [
+        'title' => 'Another title',
+        'name'  => 'Another Name',
+        'date'  => 'Another date'
+    ]
+];
+
+$news = $this->news->updateBatch($data, 'title');
+```
+
+- Delete a record by id:
 
 ```php
 $this->news->destroy($id);

@@ -2,6 +2,8 @@
 
 namespace Fluent\Repository\Contracts;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 interface RepositoryInterface
 {
     /**
@@ -41,8 +43,8 @@ interface RepositoryInterface
     /**
      * Paginate the given query.
      *
-     * @param int   $perPage
-     * @param array $columns
+     * @param int|null $perPage
+     * @param array    $columns
      * @return array
      *
      * @throws \InvalidArgumentException
@@ -60,15 +62,32 @@ interface RepositoryInterface
     public function create(array $attributes);
 
     /**
+     * Save a batch new model and return instance.
+     *
+     * @param array $attributes
+     * @return mixed
+     */
+    public function createBatch(array $attributes);
+
+    /**
      * Update a record.
      *
-     * @param array $values
-     * @param int   $id
-     * @return int
+     * @param array|object     $values
+     * @param array|int|string $id
+     * @return bool
      * 
      * @throws \ReflectionException
      */
     public function update(array $values, $id);
+
+    /**
+     * @param array  $attributes
+     * @param string $id
+     * @return mixed
+     *
+     * @throws \CodeIgniter\Database\Exceptions\DatabaseException
+     */
+    public function updateBatch(array $attributes, $id);
 
     /**
      * Delete a record by id.

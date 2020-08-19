@@ -22,15 +22,10 @@ class FindWhere implements CriterionInterface
     public function apply($entity)
     {
         foreach ($this->conditions as $field => $value) {
-
             if (is_array($value)) {
-
                 list($field, $condition, $val) = $value;
-
                 $entity = $entity->orWhere($field . $condition, $val);
-
             } else {
-
                 $entity = $entity->where($field, $value);
             }
         }

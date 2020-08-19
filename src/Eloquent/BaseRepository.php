@@ -70,11 +70,10 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * Paginate the given query.
      *
-     * @param int   $perPage
-     * @param array $columns
+     * @param int|null $perPage
+     * @param array    $columns
      * @return array
      *
-     * @throws \InvalidArgumentException
      */
     public function paginate($perPage = null, $columns = ['*'])
     {
@@ -102,17 +101,50 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
+     * Save a batch new model and return instance.
+     *
+     * @param array $attributes
+     * @return mixed
+     */
+    public function createBatch(array $attributes)
+    {
+        $results = $this->entity->insertBatch($attributes);
+
+        $this->reset();
+
+        return $results;
+    }
+
+    /**
      * Update a record.
      *
      * @param array $values
      * @param int   $id
-     * @return int
+     * @return bool
      * 
      * @throws \ReflectionException
      */
     public function update(array $values, $id)
     {
         $results = $this->entity->update($id, $values);
+
+        $this->reset();
+
+        return $results;
+    }
+
+    /**
+     * Update a batch record.
+     *
+     * @param array  $attributes
+     * @param string $id
+     * @return mixed
+     *
+     * @throws \CodeIgniter\Database\Exceptions\DatabaseException
+     */
+    public function updateBatch(array $attributes, $id)
+    {
+        $results = $this->entity->updateBatch($attributes, $id);
 
         $this->reset();
 
