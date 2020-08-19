@@ -168,9 +168,24 @@ $news = $this->news->findWhere([
 ```
 
 - Paginate the given query:
+> Note: paginate avaliable methods see [docs](https://codeigniter4.github.io/userguide/libraries/pagination.html)
 
 ```php
 $news = $this->news->paginate(15);
+
+// return will be
+{
+    "data": [
+        {
+            "id": "3",
+            "author": "Ms. Carole Wilderman DDS",
+            "description": "Labore id aperiam ut voluptatem eos natus.",
+            "created_at": "2020-08-05 17:07:16",
+            "updated_at": "2020-08-05 17:07:16",
+            "deleted_at": null
+        },
+    "paginate": {}
+}
 ```
 
 - Add an "order by" clause to the query:
