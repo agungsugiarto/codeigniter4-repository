@@ -1,9 +1,9 @@
 # CodeIgniter4 Repository Pattern
 
-[![Latest Stable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
-[![Total Downloads](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/downloads)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
-[![Latest Unstable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v/unstable)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
-[![License](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/license)](//packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Latest Stable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v)](https://github.com/agungsugiarto/codeigniter4-repository/releases)
+[![Total Downloads](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/downloads)](https://packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![Latest Unstable Version](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/v/unstable)](https://packagist.org/packages/agungsugiarto/codeigniter4-repository)
+[![License](https://poser.pugx.org/agungsugiarto/codeigniter4-repository/license)](https://packagist.org/packages/agungsugiarto/codeigniter4-repository)
 
 ## About
 Implementation of repository pattern for CodeIgniter 4. The package allows out-of-the-box filtering of data based on parameters in the request, and also allows you to quickly integrate the list filters and custom criteria.
@@ -326,7 +326,7 @@ Search by searchables:
 ```php
 public function index()
 {
-    return $this->news->scope(service('request'))->get();
+    return $this->news->scope($this->request)->get();
 }
 ```
 
@@ -348,7 +348,7 @@ protected $scopes = [
 ```
 
 ```php
-$this->news->scope(service('request'))->get();
+$this->news->scope($this->request)->get();
 ```
 
 Enable ordering for specific fields by adding `$orderable` property to your model class:
