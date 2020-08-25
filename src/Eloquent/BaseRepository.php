@@ -57,14 +57,15 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      * Add basic where clauses and execute the query.
      *
      * @param array $conditions
-     * @param array $columns
-     * @return array
+     * @return $this
      */
-    public function findWhere(array $conditions, array $columns = ['*'])
+    public function findWhere(array $conditions)
     {
-        return $this->withCriteria([
+        $this->withCriteria([
             new FindWhere($conditions)
-        ])->get($columns);
+        ]);
+
+        return $this;
     }
 
     /**

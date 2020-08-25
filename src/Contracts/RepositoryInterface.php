@@ -35,10 +35,9 @@ interface RepositoryInterface
      * Add basic where clauses and execute the query.
      *
      * @param array $conditions
-     * @param array $columns
-     * @return array
+     * @return $this
      */
-    public function findWhere(array $conditions, array $columns = ['*']);
+    public function findWhere(array $conditions);
 
     /**
      * Paginate the given query.
