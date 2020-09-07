@@ -2,8 +2,6 @@
 
 namespace Fluent\Repository\Contracts;
 
-use phpDocumentor\Reflection\Types\Boolean;
-
 interface RepositoryInterface
 {
     /**

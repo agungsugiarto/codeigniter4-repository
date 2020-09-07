@@ -6,12 +6,9 @@ use Fluent\Repository\Contracts\RepositoryInterface;
 use Fluent\Repository\Criteria\FindWhere;
 
 abstract class BaseRepository extends RepositoryAbstract implements RepositoryInterface
-{    
+{
     /**
-     * Execute the query as a "select" statement.
-     *
-     * @param array $columns
-     * @return array
+     * @inheritdoc
      */
     public function get(array $columns = ['*'])
     {
@@ -23,10 +20,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Execute the query and get the first result.
-     *
-     * @param array $columns
-     * @return array|object
+     * @inheritdoc
      */
     public function first($columns = ['*'])
     {
@@ -38,11 +32,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Find a model by its primary key.
-     *
-     * @param mixed $id
-     * @param array $columns
-     * @return array|object
+     * @inheritdoc
      */
     public function find($id, $columns = ['*'])
     {
@@ -54,10 +44,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Add basic where clauses and execute the query.
-     *
-     * @param array $conditions
-     * @return $this
+     * @inheritdoc
      */
     public function findWhere(array $conditions)
     {
@@ -69,12 +56,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Paginate the given query.
-     *
-     * @param int|null $perPage
-     * @param array    $columns
-     * @return array
-     *
+     * @inheritdoc
      */
     public function paginate($perPage = null, $columns = ['*'])
     {
@@ -85,12 +67,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Save a new model and return the instance.
-     *
-     * @param array $attributes
-     * @return \CodeIgniter\Database\BaseResult|false|int|string
-     * 
-     * @throws \ReflectionException
+     * @inheritdoc
      */
     public function create(array $attributes)
     {
@@ -102,10 +79,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Save a batch new model and return instance.
-     *
-     * @param array $attributes
-     * @return mixed
+     * @inheritdoc
      */
     public function createBatch(array $attributes)
     {
@@ -117,13 +91,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Update a record.
-     *
-     * @param array $values
-     * @param int   $id
-     * @return bool
-     * 
-     * @throws \ReflectionException
+     * @inheritdoc
      */
     public function update(array $values, $id)
     {
@@ -135,13 +103,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Update a batch record.
-     *
-     * @param array  $attributes
-     * @param string $id
-     * @return mixed
-     *
-     * @throws \CodeIgniter\Database\Exceptions\DatabaseException
+     * @inheritdoc
      */
     public function updateBatch(array $attributes, $id)
     {
@@ -153,10 +115,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Delete a record by id.
-     * 
-     * @param int $id
-     * @return mixed
+     * @inheritdoc
      */
     public function destroy($id)
     {
@@ -168,11 +127,7 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     }
 
     /**
-     * Add an "order by" clause to the query.
-     *
-     * @param string $column
-     * @param string $direction
-     * @return $this
+     * @inheritdoc
      */
     public function orderBy($column, $direction = 'asc')
     {
