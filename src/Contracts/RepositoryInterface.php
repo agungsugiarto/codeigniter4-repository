@@ -78,6 +78,8 @@ interface RepositoryInterface
     public function update(array $values, $id);
 
     /**
+     * Update a batch record.
+     * 
      * @param array  $attributes
      * @param string $id
      * @return mixed
