@@ -12,18 +12,25 @@ use Fluent\Repository\Scopes\Clauses\WhereDateGreaterScope;
 
 class Scopes extends ScopesAbstract
 {
+    /** @var array $scopes */
     protected $scopes = [
         'orderBy' => OrderByScope::class,
         'begin' => WhereDateGreaterScope::class,
         'end' => WhereDateLessScope::class,
     ];
-
+    
+    /**
+     * Constructor scopes.
+     *
+     * @param  \CodeIgniter\HTTP\IncomingRequest $request
+     * @param  array                             $searchable
+     * @return void
+     */
     public function __construct($request, $searchable)
     {
         parent::__construct($request);
 
         foreach ($searchable as $key => $value) {
-
             if (is_string($key)) {
                 $this->scopes[$key] = $this->mappings($value);
             } else {
@@ -31,7 +38,13 @@ class Scopes extends ScopesAbstract
             }
         }
     }
-
+    
+    /**
+     * Mapping by scope.
+     *
+     * @param  string $key
+     * @return string
+     */
     protected function mappings($key)
     {
         $mappings = [

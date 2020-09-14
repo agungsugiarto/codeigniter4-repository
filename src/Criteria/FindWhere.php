@@ -6,18 +6,22 @@ use Fluent\Repository\Contracts\CriterionInterface;
 
 class FindWhere implements CriterionInterface
 {
+    /** @var array $conditions */
     protected $conditions;
     
+    /**
+     * Constructor FindWhare.
+     *
+     * @param array $conditions
+     * @return void
+     */
     public function __construct(array $conditions)
     {
         $this->conditions = $conditions;
     }
 
     /**
-     * Apply model entity.
-     *
-     * @param \CodeIgniter\Model $entity
-     * @return mixed
+     * @inheritdoc
      */
     public function apply($entity)
     {

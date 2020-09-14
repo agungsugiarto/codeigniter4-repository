@@ -10,10 +10,10 @@ class OrderByScope extends ScopeAbstract
     /**
      * Order by scope.
      *
-     * @param \CodeIgniter\Model $builder
-     * @param                    $value
-     * @param                    $scope
-     * @return mixed
+     * @param \CodeIgniter\Database\BaseBuilder $builder
+     * @param string                            $value
+     * @param string                            $scope
+     * @return \CodeIgniter\Database\BaseBuilder
      */
     public function scope($builder, $value, $scope)
     {
@@ -21,13 +21,12 @@ class OrderByScope extends ScopeAbstract
 
         $orderable = $builder->orderable ?? [];
 
-        if (array_pop($arr) == 'desc' 
-            && in_array($field = implode('_', $arr), $orderable)) {
-
+        if (
+            array_pop($arr) == 'desc'
+            && in_array($field = implode('_', $arr), $orderable)
+        ) {
             return $builder->orderBy($field, 'desc');
-
         } elseif (in_array($value, $orderable)) {
-
             return $builder->orderBy($value, 'asc');
         }
 

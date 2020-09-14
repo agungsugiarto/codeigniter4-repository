@@ -53,7 +53,7 @@ interface RepositoryInterface
      *
      * @param array $attributes
      * @return \CodeIgniter\Database\BaseResult|false|int|string
-     * 
+     *
      * @throws \ReflectionException
      */
     public function create(array $attributes);
@@ -72,14 +72,14 @@ interface RepositoryInterface
      * @param array|object     $values
      * @param array|int|string $id
      * @return bool
-     * 
+     *
      * @throws \ReflectionException
      */
     public function update(array $values, $id);
 
     /**
      * Update a batch record.
-     * 
+     *
      * @param array  $attributes
      * @param string $id
      * @return mixed
@@ -90,7 +90,7 @@ interface RepositoryInterface
 
     /**
      * Delete a record by id.
-     * 
+     *
      * @param int $id
      * @return mixed
      */

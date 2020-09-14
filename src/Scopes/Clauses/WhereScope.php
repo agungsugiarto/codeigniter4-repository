@@ -9,10 +9,10 @@ class WhereScope extends ScopeAbstract
     /**
      * Where scope.
      *
-     * @param \CodeIgniter\Model $builder
-     * @param                    $value
-     * @param                    $scope
-     * @return mixed
+     * @param \CodeIgniter\Database\BaseBuilder $builder
+     * @param string                            $value
+     * @param string                            $scope
+     * @return \CodeIgniter\Database\BaseBuilder
      */
     public function scope($builder, $value, $scope)
     {

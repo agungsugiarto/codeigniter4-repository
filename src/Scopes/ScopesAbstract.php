@@ -4,8 +4,10 @@ namespace Fluent\Repository\Scopes;
 
 class ScopesAbstract
 {
+    /** @var \CodeIgniter\HTTP\IncomingRequest $request */
     protected $request;
 
+    /** @var array $scopes */
     protected $scopes = [];
 
     /**
@@ -18,6 +20,12 @@ class ScopesAbstract
         $this->request = $request;
     }
 
+    /**
+     * In your repository define which fields can be used to scope your queries.
+     *
+     * @param \CodeIgniter\Database\BaseBuilder $builder
+     * @return \CodeIgniter\Database\BaseBuilder $builder
+     */
     public function scope($builder)
     {
         $scopes = $this->getScopes();
@@ -29,11 +37,22 @@ class ScopesAbstract
         return $builder;
     }
 
+    /**
+     * Resolve scope mapping.
+     *
+     * @param string $scope
+     * @return object
+     */
     protected function resolveScope($scope)
     {
-        return new $this->scopes[$scope];
+        return new $this->scopes[$scope]();
     }
     
+    /**
+     * Get scope mapping by request.
+     *
+     * @return object
+     */
     protected function getScopes()
     {
         return $this->filterScopes(
@@ -41,6 +60,12 @@ class ScopesAbstract
         );
     }
 
+    /**
+     * Filter scopes.
+     *
+     * @param array $scopes
+     * @return array
+     */
     protected function filterScopes($scopes)
     {
         return array_filter($scopes, function ($scope) {
