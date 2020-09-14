@@ -114,7 +114,13 @@ class NewsRepository extends BaseRepository
 {
     public function entity()
     {
+        // Whatever choose one your style.
+
         return new News();
+        // or
+        return 'App\Models\News';
+        // or
+        return News::class;
     }
 }
 ```

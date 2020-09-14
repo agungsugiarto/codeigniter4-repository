@@ -2,7 +2,6 @@
 
 namespace Fluent\Repository\Eloquent;
 
-use CodeIgniter\Model;
 use Fluent\Repository\Scopes\Scopes;
 use Fluent\Repository\Contracts\ScopesInterface;
 use Fluent\Repository\Contracts\CriteriaInterface;
@@ -96,17 +95,21 @@ abstract class RepositoryAbstract implements CriteriaInterface, ScopesInterface
      * Resolve entity.
      *
      * @return \CodeIgniter\Model
-     * 
+     *
      * @throws RepositoryException
      */
     protected function resolveEntity()
     {
-        if (! $this->entity() instanceof Model) {
-            throw new RepositoryException(
-                "Class {$this->entity()} must be an instance of CodeIgniter\\Model"
-            );
+        $entity = $this->entity();
+
+        if (is_string($entity)) {
+            return new $entity();
+        } elseif ($entity instanceof \CodeIgniter\Model) {
+            return $entity;
         }
 
-        return $this->entity();
+        throw new RepositoryException(
+            "Class {$entity} must be an instance of CodeIgniter\\Model"
+        );
     }
 }
