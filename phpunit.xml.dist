@@ -12,7 +12,7 @@
 		testdox="true">
 	<testsuites>
 		<testsuite name="CodeIgniter4 Repository">
-			<directory>./test</directory>
+			<directory>./tests</directory>
 		</testsuite>
 	</testsuites>
 
