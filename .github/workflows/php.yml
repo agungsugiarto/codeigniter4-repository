@@ -26,7 +26,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with: 
         php-version: ${{ matrix.php-versions }}
-        extension: intl, json, mbstring, mysqlnd. xdebug, xml
+        extension: intl, json, mbstring, xdebug, xml
         coverage: xdebug
 
     - name: Validate composer.json and composer.lock
@@ -36,5 +36,5 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Run test suite
-      run: composer run-script test
+      run: mv phpunit.xml.dist && composer test
 
