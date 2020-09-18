@@ -26,7 +26,7 @@ jobs:
       uses: shivammathur/setup-php@master
       with: 
         php-version: ${{ matrix.php-versions }}
-        extension-csv: intl, json, mbstring, mysqlnd. xdebug, xml
+        extension: intl, json, mbstring, mysqlnd. xdebug, xml
         coverage: xdebug
 
     - name: Validate composer.json and composer.lock
