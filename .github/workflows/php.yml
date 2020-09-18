@@ -34,4 +34,4 @@ jobs:
     - name: "Install dependencies"
       run: "composer install"
     - name: "Run test suite"
-      run: "composer test -- -c phpunit.xml.dist"
+      run: "composer test -- -c phpunit.xml.github-actions.dist"
