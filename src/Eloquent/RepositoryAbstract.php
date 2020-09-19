@@ -2,6 +2,7 @@
 
 namespace Fluent\Repository\Eloquent;
 
+use CodeIgniter\HTTP\IncomingRequest;
 use Fluent\Repository\Scopes\Scopes;
 use Fluent\Repository\Contracts\ScopesInterface;
 use Fluent\Repository\Contracts\CriteriaInterface;
@@ -45,7 +46,7 @@ abstract class RepositoryAbstract implements CriteriaInterface, ScopesInterface
     /**
      * @inheritdoc
      */
-    public function scope($request)
+    public function scope(IncomingRequest $request)
     {
         $this->entity = (new Scopes($request, $this->searchable))->scope($this->entity);
 

@@ -2,6 +2,8 @@
 
 namespace Fluent\Repository\Contracts;
 
+use CodeIgniter\HTTP\IncomingRequest;
+
 interface ScopesInterface
 {
     /**
@@ -10,5 +12,5 @@ interface ScopesInterface
      * @param \CodeIgniter\HTTP\IncomingRequest $request
      * @return $this
      */
-    public function scope($request);
+    public function scope(IncomingRequest $request);
 }

@@ -2,6 +2,7 @@
 
 namespace Fluent\Repository\Criteria;
 
+use CodeIgniter\Model;
 use Fluent\Repository\Contracts\CriterionInterface;
 
 class FindWhere implements CriterionInterface
@@ -23,7 +24,7 @@ class FindWhere implements CriterionInterface
     /**
      * @inheritdoc
      */
-    public function apply($entity)
+    public function apply(Model $entity)
     {
         foreach ($this->conditions as $field => $value) {
             if (is_array($value)) {

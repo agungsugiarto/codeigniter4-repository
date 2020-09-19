@@ -3,6 +3,7 @@
 namespace Fluent\Repository\Tests;
 
 use CodeIgniter\Test\CIDatabaseTestCase;
+use Fluent\Repository\Tests\Criteria\SampleCriteria;
 use Fluent\Repository\Tests\Repository\NewsRepository;
 use Tests\Support\Database\Seeds\NewsSeeder;
 
@@ -41,6 +42,19 @@ class NewsRepositoryTest extends CIDatabaseTestCase
     {
         $this->assertNotEmpty(
             $this->repository->findWhere(['id' => 1])->get()
+        );
+    }
+
+    public function testRepositoryWithCriteria()
+    {
+        $this->assertNotEmpty(
+            $this->repository->withCriteria([
+                new SampleCriteria([
+                    'id' => 1,
+                    ['id', '=', 2]
+                ]),
+            ])
+            ->get()
         );
     }
 

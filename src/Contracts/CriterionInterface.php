@@ -2,6 +2,8 @@
 
 namespace Fluent\Repository\Contracts;
 
+use CodeIgniter\Model;
+
 interface CriterionInterface
 {
     /**
@@ -10,5 +12,5 @@ interface CriterionInterface
      * @param \CodeIgniter\Model $entity
      * @return mixed
      */
-    public function apply($entity);
+    public function apply(Model $entity);
 }

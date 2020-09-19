@@ -16,7 +16,7 @@ interface RepositoryInterface
      * Execute the query and get the first result.
      *
      * @param array $columns
-     * @return array
+     * @return array|object
      */
     public function first($columns = ['*']);
 
@@ -91,7 +91,7 @@ interface RepositoryInterface
     /**
      * Delete a record by id.
      *
-     * @param int $id
+     * @param mixed $id
      * @return mixed
      */
     public function destroy($id);

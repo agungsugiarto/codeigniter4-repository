@@ -372,7 +372,7 @@ https://example.com/news?orderBy=email_desc&begin=2019-01-24&end=2019-01-26
 You can also build your own custom scopes. In your repository override `scope()` method:
 
 ```php
-public function scope($request)
+public function scope(IncomingRequest $request)
 {
     // apply build-in scopes
     parent::scope($request);

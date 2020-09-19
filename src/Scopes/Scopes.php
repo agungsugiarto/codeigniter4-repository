@@ -2,6 +2,7 @@
 
 namespace Fluent\Repository\Scopes;
 
+use CodeIgniter\HTTP\IncomingRequest;
 use Fluent\Repository\Scopes\Clauses\WhereScope;
 use Fluent\Repository\Scopes\Clauses\OrderByScope;
 use Fluent\Repository\Scopes\Clauses\OrWhereScope;
@@ -26,7 +27,7 @@ class Scopes extends ScopesAbstract
      * @param  array                             $searchable
      * @return void
      */
-    public function __construct($request, $searchable)
+    public function __construct(IncomingRequest $request, $searchable)
     {
         parent::__construct($request);
 
@@ -45,7 +46,7 @@ class Scopes extends ScopesAbstract
      * @param  string $key
      * @return string
      */
-    protected function mappings($key)
+    protected function mappings(string $key)
     {
         $mappings = [
             'or' => OrWhereScope::class,

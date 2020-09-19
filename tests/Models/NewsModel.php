@@ -11,6 +11,8 @@ class NewsModel extends Model
     protected $allowedFields = ['title', 'description'];
     protected $useTimestamps = true;
 
+    public $orderable = ['title'];
+
     /**
      * Faker generator.
      * 
