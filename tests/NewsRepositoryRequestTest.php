@@ -36,8 +36,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'id' => '1',
-            ]
-        );
+            ]);
 
         $this->assertNotEmpty($this->repository->scope(Services::request())->first());
     }
@@ -47,8 +46,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'id' => '1000',
-            ]
-        );
+            ]);
 
         $this->assertNull($this->repository->scope(Services::request())->first());
     }
@@ -58,8 +56,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'title' => 'A',
-            ]
-        );
+            ]);
 
         $this->assertNotEmpty($this->repository->scope(Services::request())->first());
     }
@@ -69,8 +66,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'title' => 'Aaaaaa',
-            ]
-        );
+            ]);
 
         $this->assertNull($this->repository->scope(Services::request())->first());
     }
@@ -80,8 +76,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'description' => 'A',
-            ]
-        );
+            ]);
 
         $this->assertNotEmpty($this->repository->scope(Services::request())->first());
     }
@@ -91,8 +86,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'description' => 'Aaaaaa',
-            ]
-        );
+            ]);
 
         $this->assertNull($this->repository->scope(Services::request())->first());
     }
@@ -102,8 +96,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'orderBy' => 'title_asc',
-            ]
-        );
+            ]);
 
         $this->assertNotEmpty($this->repository->scope(Services::request())->paginate());
     }
@@ -113,8 +106,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
         $this->request->setMethod('get')
             ->setGlobal('get', [
                 'orderBy' => 'title_desc',
-            ]
-        );
+            ]);
 
         $this->assertNotEmpty($this->repository->scope(Services::request())->paginate());
     }
@@ -125,8 +117,7 @@ class NewsRepositoryRequestTest extends CIDatabaseTestCase
             ->setGlobal('get', [
                 'begin' => Time::now(),
                 'end'   => Time::now(),
-            ]
-        );
+            ]);
 
         $this->assertNotNull($this->repository->scope(Services::request())->paginate());
     }

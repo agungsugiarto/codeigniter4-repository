@@ -26,8 +26,7 @@ class SampleCriteria implements CriterionInterface
      */
     public function apply(Model $entity)
     {
-        foreach ($this->conditions as $field => $value)
-        {
+        foreach ($this->conditions as $field => $value) {
             if (is_array($value)) {
                 list($field, $condition, $val) = $value;
                 $entity = $entity->orWhere($field . $condition, $val);

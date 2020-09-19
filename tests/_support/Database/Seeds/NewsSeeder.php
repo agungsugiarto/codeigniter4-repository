@@ -29,8 +29,8 @@ if (! function_exists('factory')) {
 
 class NewsSeeder extends Seeder
 {
-	public function run()
-	{
-		factory(NewsModel::class, 10);
-	}
+    public function run()
+    {
+        factory(NewsModel::class, 10);
+    }
 }

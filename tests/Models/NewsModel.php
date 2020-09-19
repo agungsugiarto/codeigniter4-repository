@@ -15,7 +15,7 @@ class NewsModel extends Model
 
     /**
      * Faker generator.
-     * 
+     *
      * @param \Faker\Generator $faker
      * @return array|object
      */
