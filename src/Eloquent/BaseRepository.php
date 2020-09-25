@@ -60,10 +60,14 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
      */
     public function paginate($perPage = null, $columns = ['*'])
     {
-        return [
+        $results = [
             'data'     => $this->entity->select($columns)->paginate($perPage),
             'paginate' => $this->entity->pager,
         ];
+
+        $this->reset();
+
+        return $results;
     }
 
     /**

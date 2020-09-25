@@ -60,7 +60,11 @@ class NewsRepositoryTest extends CIDatabaseTestCase
 
     public function testRepositoryPaginate()
     {
-        $this->assertNotEmpty($this->repository->paginate());
+        $resource = $this->repository->paginate();
+
+        $this->assertIsArray($resource['data']);
+        $this->assertIsArray($resource['paginate']->getDetails());
+        $this->assertIsString($resource['paginate']->links());
     }
     
     public function testRepositoryCreate()
