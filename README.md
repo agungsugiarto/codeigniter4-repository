@@ -146,6 +146,12 @@ class NewsController extends BaseController
 - Execute the query as a "select" statement or get all results:
 
 ```php
+/**
+ * Get method implement parameter "select", "limit" and "offset".
+ * The default will be select * and return all offset data.
+ * 
+ * Example: $this->news->get(['*'], 50, 100);
+ */
 $news = $this->news->get();
 ```
 
