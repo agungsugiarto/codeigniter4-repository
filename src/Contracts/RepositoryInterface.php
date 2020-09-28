@@ -8,9 +8,11 @@ interface RepositoryInterface
      * Execute the query as a "select" statement.
      *
      * @param array $columns
+     * @param int   $limit
+     * @param int   $offset
      * @return array
      */
-    public function get(array $columns = ['*']);
+    public function get(array $columns = ['*'], int $limit = 0, int $offset = 0);
 
     /**
      * Execute the query and get the first result.

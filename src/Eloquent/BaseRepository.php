@@ -10,9 +10,9 @@ abstract class BaseRepository extends RepositoryAbstract implements RepositoryIn
     /**
      * @inheritdoc
      */
-    public function get(array $columns = ['*'])
+    public function get(array $columns = ['*'], int $limit = 0, int $offset = 0)
     {
-        $results = $this->entity->select($columns)->findAll();
+        $results = $this->entity->select($columns)->findAll($limit, $offset);
 
         $this->reset();
 

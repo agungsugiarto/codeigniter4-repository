@@ -28,6 +28,14 @@ class NewsRepositoryTest extends CIDatabaseTestCase
         $this->assertNotEmpty($this->repository->get());
     }
 
+    public function testRepositoryGetWithLimitAndOffset()
+    {
+        $getLimitOfset = $this->repository->get(['*'], 5, 0);
+
+        $this->assertNotEmpty($getLimitOfset);
+        $this->assertCount(5, $getLimitOfset);
+    }
+
     public function testRepositoryFirst()
     {
         $this->assertNotEmpty($this->repository->first());
