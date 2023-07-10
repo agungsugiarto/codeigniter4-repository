@@ -1,5 +1,5 @@
 {
-    "name": "agungsugiarto/codeigniter4-repository",
+    "name": "thaild/codeigniter4-repository",
     "description": "Implementation of repository pattern for CodeIgniter 4. The package allows out-of-the-box filtering of data based on parameters in the <b>request</b>, and also allows you to quickly integrate the list filters and custom criteria.",
     "keywords": ["codeigniter4", "repository", "pattern", "repository-pattern", "filters", "criteria"],
     "license": "MIT",
@@ -9,6 +9,12 @@
             "email": "me.agungsugiarto@tgmail.com",
             "homepage": "https://agungsugiarto.github.io",
             "role": "Developer"
+        },
+        {
+            "name": "Thaild",
+            "email": "thaiattt@gmail.com",
+            "homepage": "https://thaild.github.io",
+            "role": "Maintainer"
         }
     ],
     "require": {
